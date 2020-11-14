@@ -56,7 +56,7 @@ def reward_function(params):
     )
 
     if params["progress"] > 90:
-        total_reward += progress
+        total_reward += params["progress"]
 
     # #need for speed
     # if params["speed"] < 1:
