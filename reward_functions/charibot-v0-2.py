@@ -1,6 +1,6 @@
 # from https://medium.com/axel-springer-tech/how-to-win-aws-deepracer-ce15454f594a
-# discount 0.9; 120 mins
-# steering: -30, -15, 0, 15, 30
+# discount 0.9; 360 mins
+# steering: -20, 0, 20
 # speed: 1, 2, 3
 
 import math
@@ -52,8 +52,11 @@ def reward_function(params):
     heading_reward = heading(params)
     steering_reward = steering(params)
     total_reward = (
-        0.4 * speed_reward + 0.4 * heading_reward + 0.2 * steering_reward
+        40 * speed_reward + 40 * heading_reward + 20 * steering_reward
     )
+
+    if params["progress"] > 90:
+        total_reward += progress
 
     # #need for speed
     # if params["speed"] < 1:
