@@ -56,11 +56,11 @@ def reward_function(params):
     )
 
     if params["progress"] > 90:
-        total_reward += params["progress"]
+        total_reward += params["progress"] * 10
 
     # #need for speed
     # if params["speed"] < 1:
-    # 	total_reward*=0.9
+    #   total_reward*=0.9
 
     # don't fall off track
     if not params["all_wheels_on_track"]:
