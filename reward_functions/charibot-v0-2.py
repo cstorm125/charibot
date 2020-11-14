@@ -1,4 +1,8 @@
 # from https://medium.com/axel-springer-tech/how-to-win-aws-deepracer-ce15454f594a
+# discount 0.9; 120 mins
+# steering: -30, -15, 0, 15, 30
+# speed: 1, 2, 3
+
 import math
 
 
