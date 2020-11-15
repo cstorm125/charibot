@@ -51,16 +51,24 @@ def reward_function(params):
     speed_reward = speeding(params)
     heading_reward = heading(params)
     steering_reward = steering(params)
+
     total_reward = (
         40 * speed_reward + 40 * heading_reward + 20 * steering_reward
     )
 
-    if params["progress"] > 90:
-        total_reward += params["progress"] * 10
+    # # logging
+    # print(
+    #     f"Step {params['steps']}: total reward before progress reward: {total_reward}"
+    # )
+    # print(speed_reward, heading, steering_reward)
 
-    # #need for speed
-    # if params["speed"] < 1:
-    #   total_reward*=0.9
+    if params["progress"] > 90:
+        total_reward += params["progress"] * 5
+
+    # # logging
+    # print(
+    #     f"Total reward after progress reward: {total_reward}; progress: {params['progres']}"
+    # )
 
     # don't fall off track
     if not params["all_wheels_on_track"]:
